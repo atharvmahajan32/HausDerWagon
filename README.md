@@ -1,2 +1,2 @@
 # HausDerWagon
-A car rental website
+Frontend for a car rental website
