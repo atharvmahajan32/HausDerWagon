@@ -4,148 +4,152 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-
-
-html{
-
+html {
   font-family: "Cascadia Code", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-
-
 }
 
-nav h1{
+body {
+  background-color: #151513;
+  color: white;
+  overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 60px); /* For iPhones with notch */
+}
+
+nav h1 {
   font-family: "Great Vibes", cursive;
   font-weight: 700;
   font-style: bold;
 }
 
-
-
-#hero{
+#hero {
   position: relative;
-
 }
 
-#hero::before{
+#hero::before {
   content: '';
-  background: linear-gradient(to top right, rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), #E1C038) ;
-  
+  background: linear-gradient(to top right, rgba(0,0,0,0), rgba(0,0,0,0), rgba(0,0,0,0), #E1C038);
   position: absolute;
   top: -2px;
   left: 0;
   bottom: 0;
   right: -2px;
-  border-radius: 2rem;
+  border-radius: 1rem;
   z-index: -2;
-  
+}
+
+@media (min-width: 768px) {
+  #hero::before {
+    border-radius: 2rem;
+  }
 }
 
 #car {
   display: grid;
-  
 }
 
-
-#car> * {
+#car > * {
   grid-row: 1 / -1;
   grid-column: 1 / -1;
 }
 
-
-
-#brd{
+#brd {
   margin-left: 4vw;
-
-
 }
 
-#container{
+#container {
   position: relative;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
-#container::before{
+@media (min-width: 768px) {
+  #container {
+    border-radius: 2rem;
+  }
+}
 
+#container::before {
   content: '';
-  background: linear-gradient(to top  , rgba(0,0,0,0), #E1C038) ;
-  
+  background: linear-gradient(to top, rgba(0,0,0,0), #E1C038);
   position: absolute;
   top: -1px;
   left: -1px;
   bottom: -1px;
   right: -1px;
-  border-radius: 2rem;
+  border-radius: 1rem;
   z-index: -2;
-
 }
 
+@media (min-width: 768px) {
+  #container::before {
+    border-radius: 2rem;
+  }
+}
 
-.car-collection{
+.car-collection {
   position: relative;
-  border-radius: 2rem;
+  border-radius: 1rem;
 }
 
-.car-collection::before{
+@media (min-width: 768px) {
+  .car-collection {
+    border-radius: 2rem;
+  }
+}
 
+.car-collection::before {
   content: '';
-  background: linear-gradient(to top , rgba(0,0,0,0), rgba(0,0,0,0), #E1C038) ;
-  
+  background: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0), #E1C038);
   position: absolute;
   top: -1px;
   left: -1px;
   bottom: -1px;
   right: -1px;
-  border-radius: 2rem;
+  border-radius: 1rem;
   z-index: -2;
-
 }
 
+@media (min-width: 768px) {
+  .car-collection::before {
+    border-radius: 2rem;
+  }
+}
 
+/* Bottom Navigation Bar Animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 
+.bottom-nav {
+  animation: slideUp 0.3s ease-out;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+}
 
+/* Sign up button glow effect */
+.signup-btn {
+  box-shadow: 0 0 15px rgba(225, 192, 56, 0.5);
+  transition: all 0.3s ease;
+}
 
+.signup-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 8px rgba(225, 192, 56, 0.3);
+}
 
-@custom-variant dark (&:is(.dark *));
+/* Navigation item hover effect */
+.nav-item {
+  transition: all 0.2s ease;
+}
 
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+.nav-item:active {
+  transform: scale(0.9);
 }
 
 :root {
@@ -215,14 +219,4 @@ nav h1{
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.554 0.135 66.442);
-}
-
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
 }
