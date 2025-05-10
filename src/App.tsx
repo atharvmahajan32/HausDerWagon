@@ -26,8 +26,9 @@ function App() {
   const audi = '../cars/audi.png'
 
   const car = [bmw, merc, audi]
-  const [pickup, setPickup] = React.useState()
-  const [rtn, setRtn] = React.useState()
+  // Fixed: Added proper typing for date states
+  const [pickup, setPickup] = React.useState<Date | undefined>(undefined)
+  const [rtn, setRtn] = React.useState<Date | undefined>(undefined)
   const [series, setSeries] = useState(0)
   const [activeTab, setActiveTab] = useState("home")
 
