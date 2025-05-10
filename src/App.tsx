@@ -21,19 +21,15 @@ import {
 
 function App() {
   const [heroCard, setHeroCard] = useState(0);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const bmw = '../cars/bmw.png'
   const merc = '../cars/merc.png'
   const audi = '../cars/audi.png'
 
   const car = [bmw, merc, audi]
-  const [pickup, setPickup] = React.useState<Date>()
-  const [rtn, setRtn] = React.useState<Date>()
+  const [pickup, setPickup] = React.useState()
+  const [rtn, setRtn] = React.useState()
   const [series, setSeries] = useState(0)
-
-  function toggleMenu() {
-    setMobileMenuOpen(!mobileMenuOpen);
-  }
+  const [activeTab, setActiveTab] = useState("home")
 
   function left() {
     if (heroCard != 0){
@@ -118,20 +114,17 @@ function App() {
       <nav className="flex items-center justify-between w-full h-auto md:h-[100px] bg-[#151513] p-4 md:px-8">
         <h1 className="text-[#FFDEAD] text-3xl md:text-4xl">HausDerWagen</h1>
         
-        {/* Mobile Menu Button */}
+        {/* Mobile Rent a Car button stays on top */}
         <div className="md:hidden">
-          <button 
-            onClick={toggleMenu}
-            className="text-white focus:outline-none"
-          >
-            <i className="ri-menu-3-line text-3xl"></i>
-          </button>
+          <Button className="text-white bg-[rgba(0,0,0,0)] border border-[#E1C038]">
+            Rent a Car
+          </Button>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-6 text-[grey]">
           <h4>Home</h4>
-          <h4>Colletion</h4>
+          <h4>Collection</h4>
           <h4>About</h4>
           <h4>T&C</h4>
         </div>
@@ -144,27 +137,7 @@ function App() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      <div 
-        className={`fixed top-[72px] left-0 w-full bg-[#151513] z-50 transition-all duration-300 ease-in-out md:hidden ${
-          mobileMenuOpen ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
-        }`}
-      >
-        <div className="flex flex-col gap-4 p-4">
-          <h4 className="text-[grey] py-2 border-b border-[#333]">Home</h4>
-          <h4 className="text-[grey] py-2 border-b border-[#333]">Colletion</h4>
-          <h4 className="text-[grey] py-2 border-b border-[#333]">About</h4>
-          <h4 className="text-[grey] py-2 border-b border-[#333]">T&C</h4>
-          <div className="flex flex-col gap-3 mt-2">
-            <Button className="text-white bg-[rgba(0,0,0,0)] border border-[#E1C038]">
-              Rent a Car
-            </Button>
-            <Button className="text-white bg-[#E1C038]">SIGN UP</Button>
-          </div>
-        </div>
-      </div>
-
-      <div id="main" className="flex w-full justify-center items-center text-justify flex-wrap mt-1">
+      <div id="main" className="flex w-full justify-center items-center text-justify flex-wrap mt-1 pb-16 md:pb-0">
         <div className="flex flex-col w-full">
           <div id="hero" className="flex flex-col md:flex-row w-[92vw] mx-auto h-auto md:h-[75vh] bg-[#191919] rounded-xl md:rounded-4xl justify-between pl-2 md:pl-6">
             <div className="flex w-full md:w-[45%] text-2xl md:text-4xl tracking-[-2px] flex-col mt-7 font-light px-4 md:px-10">
@@ -372,6 +345,47 @@ function App() {
                 <span>Select</span> <i className="ri-arrow-right-line ml-2"></i>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Navigation Bar for Mobile */}
+      <div className="fixed bottom-0 left-0 right-0 bg-[#151513] border-t border-[#282625] md:hidden z-50">
+        <div className="flex justify-around items-center p-3">
+          <div 
+            className={`flex flex-col items-center ${activeTab === "home" ? "text-[#E1C038]" : "text-gray-400"}`}
+            onClick={() => setActiveTab("home")}
+          >
+            <i className="ri-home-5-line text-xl"></i>
+            <span className="text-xs mt-1">Home</span>
+          </div>
+          <div 
+            className={`flex flex-col items-center ${activeTab === "collection" ? "text-[#E1C038]" : "text-gray-400"}`}
+            onClick={() => setActiveTab("collection")}
+          >
+            <i className="ri-gallery-line text-xl"></i>
+            <span className="text-xs mt-1">Collection</span>
+          </div>
+          <div 
+            className={`flex flex-col items-center ${activeTab === "about" ? "text-[#E1C038]" : "text-gray-400"}`}
+            onClick={() => setActiveTab("about")}
+          >
+            <i className="ri-information-line text-xl"></i>
+            <span className="text-xs mt-1">About</span>
+          </div>
+          <div 
+            className={`flex flex-col items-center ${activeTab === "tc" ? "text-[#E1C038]" : "text-gray-400"}`}
+            onClick={() => setActiveTab("tc")}
+          >
+            <i className="ri-file-list-3-line text-xl"></i>
+            <span className="text-xs mt-1">T&C</span>
+          </div>
+          <div 
+            className="flex flex-col items-center h-10 text-white bg-[#E1C038] px-3 py-2 rounded-2xl -mt-5"
+            onClick={() => setActiveTab("signup")}
+          >
+            <i className="ri-user-add-line text-xl"></i>
+            <span className="text-xs mt-1">SIGN UP</span>
           </div>
         </div>
       </div>
