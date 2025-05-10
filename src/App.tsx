@@ -155,13 +155,13 @@ function App() {
             <div className="w-full md:w-[55%] relative flex mt-4 md:mr-8 flex-col">
               <ul className="flex gap-2 md:gap-5 justify-center md:justify-end items-center w-full z-10">
                 <li id="lbtn" onClick={left} className='w-8 h-8 md:w-10 md:h-10 hover:bg-[#E1C038] bg-[#282625] flex justify-center items-center rounded-full'><i className="ri-arrow-left-s-fill"></i></li>
-                <li id="car1" onClick={()=>setHeroCard(0)} className="h-[60px] w-[100px] md:h-[90px] md:w-[155px] bg-[#282625] rounded-xl md:rounded-2xl relative overflow-hidden">
+                <li id="car1" onClick={()=>setHeroCard(0)} className="h-[60px] w-[100px] md:h-[90px] md:w-[155px] bg-[#282625] rounded-xl md:rounded-2xl relative ">
                   <img className="absolute mt-3 w-full h-auto object-contain" src="../cars/bmw.png" alt="" />
                 </li>
-                <li id="car2" onClick={()=>setHeroCard(1)} className="h-[60px] w-[100px] md:h-[90px] md:w-[155px] bg-[#282625] rounded-xl md:rounded-2xl relative overflow-hidden">
+                <li id="car2" onClick={()=>setHeroCard(1)} className="h-[60px] w-[100px] md:h-[90px] md:w-[155px] bg-[#282625] rounded-xl md:rounded-2xl relative ">
                   <img className="absolute mt-3 w-full h-auto object-contain" src="../cars/merc.png" alt="" />
                 </li>
-                <li id="car3" onClick={()=>setHeroCard(2)} className="h-[60px] w-[100px] md:h-[90px] md:w-[155px] bg-[#282625] rounded-xl md:rounded-2xl relative overflow-hidden">
+                <li id="car3" onClick={()=>setHeroCard(2)} className="h-[60px] w-[100px] md:h-[90px] md:w-[155px] bg-[#282625] rounded-xl md:rounded-2xl relative ">
                   <img className="absolute mt-3 md:mt-5 w-full h-auto object-contain" src="../cars/audi.png" alt="" />
                 </li>
                 <li id="rbtn" onClick={right} className="w-8 h-8 md:w-10 md:h-10 hover:bg-[#E1C038] bg-[#282625] flex justify-center items-center rounded-full"><i className="ri-arrow-right-s-fill"></i></li>
